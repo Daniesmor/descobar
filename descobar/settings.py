@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'core',
     'about',
     'social',
-    'portfolio'
+    'portfolio',
+    'registration'
 ]
 
 MIDDLEWARE = [

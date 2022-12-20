@@ -58,7 +58,12 @@
 							<label class="custom-control-label" for="darkSwitch">Dark Mode</label>
 						</div>
 			        </div><!--//dark-mode-switch-->
-	                <a class="btn btn-cta-primary" href="https://themes.3rdwavemedia.com/" target="_blank"><i class="fas fa-paper-plane"></i> Contact Me</a>        
+                    {% if not request.user.is_authenticated %}
+	                    <a class="btn btn-cta-primary" href="{% url 'login' %}" target="_blank"><i class="fas fa-paper-plane"></i> Acceder</a>
+                        <a class="btn btn-cta-primary" href="{% url 'signup' %}" target="_blank"><i class="fas fa-paper-plane"></i> Registro</a>
+                    {% else %}
+                        <a class="btn btn-cta-primary" href="{% url 'logout' %}" target="_blank"><i class="fas fa-paper-plane"></i> Salir</a>
+                    {% endif %}
 	            </div><!--//col-->
 	        </div><!--//row-->         
         </div><!--//container-->

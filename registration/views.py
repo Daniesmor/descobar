@@ -2,15 +2,23 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
 from django import forms
-from .forms import UserCreationFormWIthEmail
-from django.views.generic.base import TemplateView
+from .forms import UserCreationFormWIthEmail, ProfileForm, EmailForm
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+from django.views.generic.edit import UpdateView
+from .models import Profile
 
 
 @method_decorator(login_required, name='dispatch')
-class ProfileUpdate(TemplateView):
-    template_name = "registration/profile_form.html"
+class ProfileUpdate(UpdateView):
+    form_class = ProfileForm
+    success_url = reverse_lazy('profile')
+
+    def get_object(self):
+        try:
+            return Profile.objects.get(user=self.request.user)
+        except Profile.DoesNotExist:
+            return Profile.objects.create(user=self.request.user)
 
 
 class SignUpView(CreateView):
@@ -30,4 +38,19 @@ class SignUpView(CreateView):
         form.fields['email'].label = ''
         form.fields['password1'].label = ''
         form.fields['password2'].label = ''
+        return form
+
+
+@method_decorator(login_required, name='dispatch')
+class EmailUpdate(UpdateView):
+    template_name = 'registration/profile_email_form.html'
+    form_class = EmailForm
+    success_url = reverse_lazy('profile')
+
+    def get_object(self):
+        return self.request.user
+
+    def get_form(self, form_class=None):
+        form = super(EmailUpdate, self).get_form()
+        form.fields['email'].widget = forms.EmailInput(attrs={'class': 'form-control mb-2', 'placehoder': 'Email'})
         return form

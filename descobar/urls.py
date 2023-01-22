@@ -23,7 +23,8 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('registration.urls')),
     path('questions/', include('forum.urls')),
-    path('projects/', include('projects.urls'))
+    path('projects/', include('projects.urls')),
+    path('events/', include('events_list.urls'))
 ]
 if settings.DEBUG:
     from django.conf.urls.static import static

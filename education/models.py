@@ -1,6 +1,6 @@
 from django.db import models
 import datetime
-YEAR_CHOICES = [(r,r) for r in range(1984, datetime.date.today().year+1)]
+YEAR_CHOICES = [(r, r) for r in range(1984, datetime.date.today().year+1)]
 
 
 class Education(models.Model):

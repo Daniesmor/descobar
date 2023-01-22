@@ -241,12 +241,12 @@ var GitHubActivity = (function() {
 
     var selector = options.selector,
         userUrl   = 'https://api.github.com/users/' + options.username,
-        eventsUrl = userUrl + '/events',
+        eventsUrl = userUrl + '/events_list',
         header,
         activity;
 
     if (!!options.repository){
-      eventsUrl = 'https://api.github.com/repos/' + options.username + '/' + options.repository + '/events';
+      eventsUrl = 'https://api.github.com/repos/' + options.username + '/' + options.repository + '/events_list';
     }
 
     if (!!options.eventsUrl){

@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'projects',
     'contact',
     'education',
-    'events_list'
+    'events_list',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -77,6 +78,12 @@ TEMPLATES = [
         },
     },
 ]
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': None,
+    }
+}
 
 WSGI_APPLICATION = 'descobar.wsgi.application'
 

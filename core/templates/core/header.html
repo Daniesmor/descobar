@@ -79,7 +79,7 @@
         <div class="secondary col-lg-4 col-12">
                      <aside class="info aside section">
                         <div class="section-inner shadow-sm rounded">
-                            <h2 class="heading">Basic Information</h2>
+                            <h2 class="heading">Basics Information</h2>
                             <div class="content">
                                 <ul class="list-unstyled">
                                     {%  for element in contact %}
@@ -100,6 +100,22 @@
                                     <h4 class="university">{{ element.university }} <span class="year">({{ element.start }} - {% if element.finish %}{{ element.finish }}{% endif %})</span></h4>
                                 </div><!--//item-->
                                 {% endfor %}
+                            </div><!--//content-->
+                        </div><!--//section-inner-->
+                    </aside><!--//section-->
+
+                    <aside class="languages aside section">
+                        <div class="section-inner shadow-sm rounded">
+                            <h2 class="heading">Languages</h2>
+                            <div class="content">
+                                <ul class="list-unstyled">
+                                    {% for element in languague %}
+                                        <li class="item">
+                                            <span class="title"><strong>{{ element.languague }}:</strong></span>
+                                            <span class="level">{{ element.level }}</span>
+                                        </li><!--//item-->
+                                    {% endfor %}
+                                </ul>
                             </div><!--//content-->
                         </div><!--//section-inner-->
                     </aside><!--//section-->
@@ -167,23 +183,7 @@
 
 
 
-                    <aside class="languages aside section">
-                        <div class="section-inner shadow-sm rounded">
-                            <h2 class="heading">Languages</h2>
-                            <div class="content">
-                                <ul class="list-unstyled">
-                                    <li class="item">
-                                        <span class="title"><strong>English:</strong></span>
-                                        <span class="level">Native Speaker <br class="visible-xs"/><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> </span>
-                                    </li><!--//item-->
-                                    <li class="item">
-                                        <span class="title"><strong>Spanish:</strong></span>
-                                        <span class="level">Professional Proficiency <br class="visible-sm visible-xs"/><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star-half"></i></span>
-                                    </li><!--//item-->
-                                </ul>
-                            </div><!--//content-->
-                        </div><!--//section-inner-->
-                    </aside><!--//section-->
+                    
 
                     <aside class="blog aside section">
                         <div class="section-inner shadow-sm rounded">

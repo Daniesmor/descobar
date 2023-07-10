@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'education',
     'events_list',
     'ckeditor',
+    'idiomas'
 ]
 
 MIDDLEWARE = [

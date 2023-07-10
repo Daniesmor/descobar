@@ -24,7 +24,8 @@ urlpatterns = [
     path('accounts/', include('registration.urls')),
     path('questions/', include('forum.urls')),
     path('projects/', include('projects.urls')),
-    path('events/', include('events_list.urls'))
+    path('events/', include('events_list.urls')),
+    path('exams/', include('exams.urls'))
 ]
 if settings.DEBUG:
     from django.conf.urls.static import static

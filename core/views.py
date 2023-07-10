@@ -6,6 +6,7 @@ from projects.models import Post
 from contact.models import Contact
 from education.models import Education
 from events_list.models import Event
+from idiomas.models import Languague
 
 # Create your views here.
 def home(request):
@@ -16,13 +17,16 @@ def home(request):
     contact = Contact.objects.all()
     education = Education.objects.all()
     events = Event.objects.all()
+    languague = Languague.objects.all()
     return render(request, "core/index.html", {'about': about,
                                                'social': social,
                                                'portfolio': portfolio,
                                                'projects': projects,
                                                'contact': contact,
                                                'education': education,
-                                               'events': events})
+                                               'events': events,
+                                               'languague': languague
+                                               })
 
 
 def header(request):
@@ -30,7 +34,10 @@ def header(request):
     social = Link.objects.all()
     portfolio = Portfolio.objects.first()
     projects = Post.objects.all()
+    languague = Languague.objects.all()
     return render(request, "core/header.html", {'about': about,
                                                'social': social,
                                                'portfolio': portfolio,
-                                               'projects': projects})
+                                               'projects': projects,
+                                               'languague': languague
+                                               })
